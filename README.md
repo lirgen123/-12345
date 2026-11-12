@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox
 import sqlite3
 from datetime import datetime
 
-# --- РАБОТА С БАЗОЙ ДАННЫХ ---
+
 def init_db():
     conn = sqlite3.connect('warehouse.db')
     cursor = conn.cursor()
@@ -36,7 +36,6 @@ def init_db():
         conn.commit()
     conn.close()
 
-# --- ГЛАВНОЕ ОКНО ---
 class WarehouseApp:
     def __init__(self, root):
         self.root = root
@@ -238,12 +237,6 @@ class WarehouseApp:
             self.load_data()
 
         tk.Button(qty_window, text="Применить", command=apply).pack(pady=10)
-
-# --- АВТОРИЗАЦИЯ ---
-def login():
-    login_win = tk.Tk()
-    login_win.title("Авторизация в системе Склад")
-    login_win.geometry("300x200")
 
     tk.Label(login_win, text="Логин:").pack(pady=5)
     user_entry = tk.Entry(login_win)
